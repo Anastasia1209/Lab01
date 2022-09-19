@@ -180,6 +180,75 @@ namespace lab1
             var implArr = new[] { 1, 2, 3 };
             var implStr = "Hello";
 
+            //задание 4
+
+            (int intNum, string stringNum, char charNum, string stringNum2, ulong ulongNum) tuple = (13, "Sunny", 's', "Moon", 365115);
+            Console.WriteLine("Вывод всех элементов кортежа: " + tuple.intNum + " " + tuple.stringNum + " " + tuple.charNum + " " + tuple.stringNum2 + " " + tuple.ulongNum);
+            Console.WriteLine("Вывод 1, 3, 4 элементов: " + tuple.intNum + " " + tuple.charNum + " " + tuple.stringNum2);
+
+            var (unboxInt, unboxStr, unboxChar, unboxStr2, unboxUl) = (tuple.intNum, tuple.stringNum, tuple.charNum, tuple.stringNum2, tuple.ulongNum);
+            unboxInt = tuple.intNum;
+
+            (int Num, bool Bool) firstTup = (10, true);
+            (int Num, bool Bool) secTup = (20, false);
+            Console.WriteLine($"Cравнение кортежей на равенство:{firstTup == secTup}");
+            Console.WriteLine($"Сравнение кортежей на неравенство:{firstTup != secTup}");
+
+            int[] arrFun = { 1, 3, 5, 7, 9 };
+            string strFun = "Hello, World!";
+            Console.WriteLine(func(arrFun, strFun));
+            dynamic func(int[] arr, string str)
+            {
+                int max = arr[0];
+                int min = arr[0];
+                int sum = 0;
+                char firstLett = str[0];
+                foreach (int i in arr)
+                {
+                    if (i > max)
+                    {
+                        max = i;
+                    }
+                    else if (i < min)
+                    {
+                        min = i;
+                    }
+                    sum += i;
+                }
+                (int maxNum, int minNum, int sumNum, char firstStr) tuple = (max, min, sum, firstLett);
+
+                return tuple;
+            }
+
+            Console.WriteLine(funcCheck());
+            string funcCheck()
+            {
+                int a = int.MaxValue;
+                try
+                {
+                    checked
+                    {
+                        Console.WriteLine(a + 1);
+                    }
+                }
+                catch (OverflowException check)
+                {
+                    return check.Message;
+                }
+                return "нет ошибок";
+
+            }
+
+            Console.WriteLine(funcUncheck());
+            int funcUncheck()
+            {
+                int b = int.MaxValue;
+
+                unchecked
+                {
+                    return b + 1;
+                }
+            }
         }
     }
 }
