@@ -103,6 +103,83 @@ namespace lab1
             strBuilder.Insert(0, "My ");
             strBuilder.Remove(8, 5);
             Console.WriteLine(strBuilder);
+
+            //задание 3
+
+            int[,] arr = { { 1, 1, 1 }, { 0, 0, 0 }, { 1, 0, 1 } };
+            int rows = arr.GetUpperBound(0) + 1;
+            int columns = arr.Length / rows;
+            for (int rrr = 0; rrr < rows; rrr++)
+            {
+                for (int ccc = 0; ccc < columns; ccc++)
+                {
+                    Console.Write($"{arr[rrr, ccc]} \t");
+                }
+                Console.WriteLine();
+            }
+
+            string[] strArr = { "Как", "тебя", "зовут?" };
+            for (int ii = 0; ii < strArr.Length; ii++)
+            {
+                Console.WriteLine(strArr[ii]);
+            }
+            Console.WriteLine(strArr.Length);
+
+            Console.WriteLine($"Введите позицию и значение:");
+            int index = Convert.ToInt32(Console.ReadLine());
+
+            string strChange = Console.ReadLine();
+
+            strArr[index] = strChange;
+
+            for (int j = 0; j < strArr.Length; j++)
+            {
+                Console.WriteLine(strArr[j]);
+            }
+
+            float[][] flArr = new float[3][];
+            flArr[0] = new float[2];
+            flArr[1] = new float[3];
+            flArr[2] = new float[4];
+
+            Console.WriteLine("Введите значения первой строки:");
+            for (int k = 0; k < 2; k++)
+            {
+                flArr[0][k] = Convert.ToSingle(Console.ReadLine());
+            }
+
+            Console.WriteLine("Введите значения второй строки:");
+            for (int k = 0; k < 3; k++)
+            {
+                flArr[1][k] = Convert.ToSingle(Console.ReadLine());
+            }
+
+            Console.WriteLine("Введите значения третьей строки:");
+            for (int k = 0; k < 4; k++)
+            {
+                flArr[2][k] = Convert.ToSingle(Console.ReadLine());
+            }
+
+            for (int a = 0; a < 2; a++)
+            {
+                Console.Write(flArr[0][a] + " ");
+            }
+            Console.WriteLine();
+
+            for (int a = 0; a < 3; a++)
+            {
+                Console.Write(flArr[1][a] + " ");
+            }
+            Console.WriteLine();
+
+            for (int a = 0; a < 4; a++)
+            {
+                Console.Write(flArr[2][a] + " ");
+            }
+
+            var implArr = new[] { 1, 2, 3 };
+            var implStr = "Hello";
+
         }
     }
 }
